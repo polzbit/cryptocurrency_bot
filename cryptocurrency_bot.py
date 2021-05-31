@@ -22,8 +22,7 @@ class CrypoCurrencyBot:
         driver.maximize_window()
         
         # get price using selenium
-        # coin_price = driver.find_element_by_xpath("//div[contains(@class, 'priceValue___11gHJ')]").text
-        # print(coin_price.text)
+        coin_price = driver.find_element_by_xpath("//div[contains(@class, 'priceValue___11gHJ')]").text
 
         # click market button to show coin markets
         # market_btn = driver.find_elements_by_class_name('hh30zs-0')[1]
@@ -31,13 +30,8 @@ class CrypoCurrencyBot:
         # sleep(2)
 
         # get page source using pandas and quit driver
-        # dataframes[0] - coin price
-        # dataframes[1] - market cap
-        # dataframes[2] - yesterday data
-        # dataframes[3] - weekly data
-        # dataframes[4] - circulating data
-        dataframes = pd.read_html(driver.page_source)
-        coin_price = dataframes[0][1][0]
+        # dataframes = pd.read_html(driver.page_source)
+        # coin_price = dataframes[0][1][0]
         
         driver.quit()
 
