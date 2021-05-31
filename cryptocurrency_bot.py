@@ -6,19 +6,18 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from time import sleep
 import pandas as pd
 
 class CrypoCurrencyBot:
-    def __init__(self):
-        self.currencies = ["bitcoin", "litecoin", "dogecoin"]
-
+    def __init__(self, currency):
+        self.currency = currency
+        
     # function to scrape the data
-    def get_currency(self, currency):
-        my_url = f'https://coinmarketcap.com/currencies/{currency.lower()}'
+    def get_currency(self):
+        my_url = f'https://coinmarketcap.com/currencies/{self.currency.lower()}'
         option = Options()
         option.headless = False     # False - show selenium process, True - selenium work in background
-        driver = webdriver.Chrome(executable_path="path-to-chromedriver", options=option)
+        driver = webdriver.Chrome(executable_path="E:\Programs\chromedriver\chromedriver.exe", options=option)
         driver.get(my_url)
         driver.maximize_window()
         
@@ -44,15 +43,3 @@ class CrypoCurrencyBot:
 
         return coin_price
     
-    # function to print data
-    def print_currencies(self):
-        # iterate over this list and get the data currency by currency
-        for currency in self.currencies:
-           print(currency + " Value: " + self.get_currency(currency))
-           sleep(1)
-
-
-if __name__ == "__main__":
-    c = CrypoCurrencyBot()
-    # c.get_currency("bitcoin")
-    c.print_currencies()
