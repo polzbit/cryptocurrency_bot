@@ -17,7 +17,7 @@ class CrypoCurrencyBot:
         my_url = f'https://coinmarketcap.com/currencies/{self.currency.lower()}'
         option = Options()
         option.headless = False     # False - show selenium process, True - selenium work in background
-        driver = webdriver.Chrome(executable_path="E:\Programs\chromedriver\chromedriver.exe", options=option)
+        driver = webdriver.Chrome(executable_path="path-to-chromedriver.exe", options=option)
         driver.get(my_url)
         driver.maximize_window()
         
