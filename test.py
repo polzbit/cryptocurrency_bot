@@ -15,5 +15,4 @@ class Tester:
 
 if __name__ == "__main__":
     t = Tester()
-    # c.get_currency("bitcoin")
     t.print_currencies()
